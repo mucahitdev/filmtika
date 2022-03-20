@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;500;700&family=Ubuntu+Mono:wght@400;700&display=swap');
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    background-color: #282C34;
+}
+
+
+/* font-family: 'Jura', sans-serif; */
