@@ -8,7 +8,7 @@ import { useBase } from '../context/BaseContext'
 
 export default function Home({ movies }) {
   const { search, setSearch } = useBase()
-  const [res, setRes] = useState([])
+  const [res, setRes] = useState()
 
   function update(event) {
     setSearch(event.target.value);
@@ -18,11 +18,12 @@ export default function Home({ movies }) {
   }
 
   useEffect(async () => {
-    const data = await unfetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=tr-TR&query=${search}&page=1&include_adult=false`)
+    const data = await unfetch(`https://api.themoviedb.org/3/search/movie?api_key=325b2afeb1decfe2d3682251ef27ba88&language=tr-TR&query=${search}&page=1&include_adult=false`)
     const cevap = await data.json()
     setRes(cevap);
   }, [search])
 
+  console.log(res)
 
   return (
     <div className='container h-screen'>
@@ -37,7 +38,7 @@ export default function Home({ movies }) {
       </div>
 
 
-
+      
       {
         search.length > 1 ?
           <div className='sm:flex sm:flex-wrap sm:justify-between'>
